@@ -1,0 +1,5 @@
+tipo,nome,lat,lon,data,especie,descricao,fonte
+incidente,Praia de Boa Viagem - Posto 7,-8.1256,-34.8998,2023-03-05,Tubarão-tigre,Incidente envolvendo banhista em área rasa,CEMIT
+incidente,Praia de Piedade - Igrejinha,-8.1751,-34.9152,2023-03-06,Tubarão-cabeça-chata,Incidente registrado próximo à Igrejinha de Piedade,CEMIT
+posto_salvavidas,Posto de Salvamento 01,-8.1132,-34.8941,2024-01-01,N/A,Posto ativo do Corpo de Bombeiros Militar de Pernambuco,CBMPE
+posto_salvavidas,Posto de Salvamento 08,-8.1345,-34.9031,2024-01-01,N/A,Posto ativo com guarda-vidas em Boa Viagem,CBMPE

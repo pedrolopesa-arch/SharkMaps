@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f0b0f1d7fda1a3ec138af4ebfbfdda75 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f0b0f1d7fda1a3ec138af4ebfbfdda75" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f0b0f1d7fda1a3ec138af4ebfbfdda75 = L.map(
+                "map_f0b0f1d7fda1a3ec138af4ebfbfdda75",
+                {
+                    center: [-8.12, -34.9],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_525709112c773422ff32e8e64f337ed7 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_525709112c773422ff32e8e64f337ed7.addTo(map_f0b0f1d7fda1a3ec138af4ebfbfdda75);
+        
+    
+            var marker_cluster_1f33bbd852968eb0f2b761cfdb490dca = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_14aa92b53af0f533ff4aabeec60a580b = L.marker(
+                [-8.1256, -34.8998],
+                {
+}
+            ).addTo(marker_cluster_1f33bbd852968eb0f2b761cfdb490dca);
+        
+    
+            var icon_a74c644857ab2bd64e3582f2665885d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "warning",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c4f833b8424cda04ee09244deec2f0e7 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var i_frame_4009d3dd6176decd41c6a5b129d93b99 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgbWluLXdpZHRoOiAyMDBweDsgZm9udC1zaXplOiAxM3B4OyI+CiAgICAgICAgPGg0IHN0eWxlPSJtYXJnaW46IDAgMCA2cHggMDsgY29sb3I6ICNjMDM5MmI7Ij5QcmFpYSBkZSBCb2EgVmlhZ2VtIC0gUG9zdG8gNzwvaDQ+CiAgICAgICAgPGI+VGlwbzo8L2I+IGluY2lkZW50ZTxicj4KICAgICAgICA8Yj5EYXRhOjwvYj4gMjAyMy0wMy0wNTxicj4KICAgICAgICA8Yj5Fc3DDqWNpZTo8L2I+IFR1YmFyw6NvLXRpZ3JlPGJyPgogICAgICAgIDxwIHN0eWxlPSJtYXJnaW46IDZweCAwOyI+SW5jaWRlbnRlIGVudm9sdmVuZG8gYmFuaGlzdGEgZW0gw6FyZWEgcmFzYTwvcD4KICAgICAgICA8c21hbGwgc3R5bGU9ImNvbG9yOiAjNjY2OyI+PGI+Rm9udGU6PC9iPiBDRU1JVDwvc21hbGw+CiAgICA8L2Rpdj4KICAgIA==" width="250" style="border:none !important;" height="170"></iframe>`)[0];
+                popup_c4f833b8424cda04ee09244deec2f0e7.setContent(i_frame_4009d3dd6176decd41c6a5b129d93b99);
+            
+        
+
+        marker_14aa92b53af0f533ff4aabeec60a580b.bindPopup(popup_c4f833b8424cda04ee09244deec2f0e7)
+        ;
+
+        
+    
+    
+            marker_14aa92b53af0f533ff4aabeec60a580b.bindTooltip(
+                `<div>
+                     Praia de Boa Viagem - Posto 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_14aa92b53af0f533ff4aabeec60a580b.setIcon(icon_a74c644857ab2bd64e3582f2665885d6);
+            
+    
+            var marker_f4b2d66ffb37e50c544643c5ae489ded = L.marker(
+                [-8.1751, -34.9152],
+                {
+}
+            ).addTo(marker_cluster_1f33bbd852968eb0f2b761cfdb490dca);
+        
+    
+            var icon_2faca984a87a5ba93f779f23f1b11848 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "warning",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0fb6827f9b77c9f776587268c854cc41 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var i_frame_37881526125f5f02149eb6c365402f25 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgbWluLXdpZHRoOiAyMDBweDsgZm9udC1zaXplOiAxM3B4OyI+CiAgICAgICAgPGg0IHN0eWxlPSJtYXJnaW46IDAgMCA2cHggMDsgY29sb3I6ICNjMDM5MmI7Ij5QcmFpYSBkZSBQaWVkYWRlIC0gSWdyZWppbmhhPC9oND4KICAgICAgICA8Yj5UaXBvOjwvYj4gaW5jaWRlbnRlPGJyPgogICAgICAgIDxiPkRhdGE6PC9iPiAyMDIzLTAzLTA2PGJyPgogICAgICAgIDxiPkVzcMOpY2llOjwvYj4gVHViYXLDo28tY2FiZcOnYS1jaGF0YTxicj4KICAgICAgICA8cCBzdHlsZT0ibWFyZ2luOiA2cHggMDsiPkluY2lkZW50ZSByZWdpc3RyYWRvIHByw7N4aW1vIMOgIElncmVqaW5oYSBkZSBQaWVkYWRlPC9wPgogICAgICAgIDxzbWFsbCBzdHlsZT0iY29sb3I6ICM2NjY7Ij48Yj5Gb250ZTo8L2I+IENFTUlUPC9zbWFsbD4KICAgIDwvZGl2PgogICAg" width="250" style="border:none !important;" height="170"></iframe>`)[0];
+                popup_0fb6827f9b77c9f776587268c854cc41.setContent(i_frame_37881526125f5f02149eb6c365402f25);
+            
+        
+
+        marker_f4b2d66ffb37e50c544643c5ae489ded.bindPopup(popup_0fb6827f9b77c9f776587268c854cc41)
+        ;
+
+        
+    
+    
+            marker_f4b2d66ffb37e50c544643c5ae489ded.bindTooltip(
+                `<div>
+                     Praia de Piedade - Igrejinha
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f4b2d66ffb37e50c544643c5ae489ded.setIcon(icon_2faca984a87a5ba93f779f23f1b11848);
+            
+    
+            var marker_c36177f903afed604615c39b48023bcd = L.marker(
+                [-8.1132, -34.8941],
+                {
+}
+            ).addTo(marker_cluster_1f33bbd852968eb0f2b761cfdb490dca);
+        
+    
+            var icon_76fd29f14898e7292364fe7493e94906 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "life-ring",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f026d06518338dad127160c6825e31cd = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var i_frame_70d342319a3141476ea098ad92570d15 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgbWluLXdpZHRoOiAyMDBweDsgZm9udC1zaXplOiAxM3B4OyI+CiAgICAgICAgPGg0IHN0eWxlPSJtYXJnaW46IDAgMCA2cHggMDsgY29sb3I6ICMyOTgwYjk7Ij5Qb3N0byBkZSBTYWx2YW1lbnRvIDAxPC9oND4KICAgICAgICA8Yj5UaXBvOjwvYj4gcG9zdG9fc2FsdmF2aWRhczxicj4KICAgICAgICA8Yj5EYXRhOjwvYj4gMjAyNC0wMS0wMTxicj4KICAgICAgICA8Yj5Fc3DDqWNpZTo8L2I+IE7Do28gaWRlbnRpZmljYWRhPGJyPgogICAgICAgIDxwIHN0eWxlPSJtYXJnaW46IDZweCAwOyI+UG9zdG8gYXRpdm8gZG8gQ29ycG8gZGUgQm9tYmVpcm9zIE1pbGl0YXIgZGUgUGVybmFtYnVjbzwvcD4KICAgICAgICA8c21hbGwgc3R5bGU9ImNvbG9yOiAjNjY2OyI+PGI+Rm9udGU6PC9iPiBDQk1QRTwvc21hbGw+CiAgICA8L2Rpdj4KICAgIA==" width="250" style="border:none !important;" height="170"></iframe>`)[0];
+                popup_f026d06518338dad127160c6825e31cd.setContent(i_frame_70d342319a3141476ea098ad92570d15);
+            
+        
+
+        marker_c36177f903afed604615c39b48023bcd.bindPopup(popup_f026d06518338dad127160c6825e31cd)
+        ;
+
+        
+    
+    
+            marker_c36177f903afed604615c39b48023bcd.bindTooltip(
+                `<div>
+                     Posto de Salvamento 01
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c36177f903afed604615c39b48023bcd.setIcon(icon_76fd29f14898e7292364fe7493e94906);
+            
+    
+            var marker_4afbb6f474728658be05b5e6853baa6e = L.marker(
+                [-8.1345, -34.9031],
+                {
+}
+            ).addTo(marker_cluster_1f33bbd852968eb0f2b761cfdb490dca);
+        
+    
+            var icon_ac9f6475dcbf60482c11e762e188b99a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "life-ring",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_044b35f8854406252e5534b40a8d5692 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var i_frame_5acae410600cf21ad4556c694027a3f7 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgbWluLXdpZHRoOiAyMDBweDsgZm9udC1zaXplOiAxM3B4OyI+CiAgICAgICAgPGg0IHN0eWxlPSJtYXJnaW46IDAgMCA2cHggMDsgY29sb3I6ICMyOTgwYjk7Ij5Qb3N0byBkZSBTYWx2YW1lbnRvIDA4PC9oND4KICAgICAgICA8Yj5UaXBvOjwvYj4gcG9zdG9fc2FsdmF2aWRhczxicj4KICAgICAgICA8Yj5EYXRhOjwvYj4gMjAyNC0wMS0wMTxicj4KICAgICAgICA8Yj5Fc3DDqWNpZTo8L2I+IE7Do28gaWRlbnRpZmljYWRhPGJyPgogICAgICAgIDxwIHN0eWxlPSJtYXJnaW46IDZweCAwOyI+UG9zdG8gYXRpdm8gY29tIGd1YXJkYS12aWRhcyBlbSBCb2EgVmlhZ2VtPC9wPgogICAgICAgIDxzbWFsbCBzdHlsZT0iY29sb3I6ICM2NjY7Ij48Yj5Gb250ZTo8L2I+IENCTVBFPC9zbWFsbD4KICAgIDwvZGl2PgogICAg" width="250" style="border:none !important;" height="170"></iframe>`)[0];
+                popup_044b35f8854406252e5534b40a8d5692.setContent(i_frame_5acae410600cf21ad4556c694027a3f7);
+            
+        
+
+        marker_4afbb6f474728658be05b5e6853baa6e.bindPopup(popup_044b35f8854406252e5534b40a8d5692)
+        ;
+
+        
+    
+    
+            marker_4afbb6f474728658be05b5e6853baa6e.bindTooltip(
+                `<div>
+                     Posto de Salvamento 08
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4afbb6f474728658be05b5e6853baa6e.setIcon(icon_ac9f6475dcbf60482c11e762e188b99a);
+            
+    
+            marker_cluster_1f33bbd852968eb0f2b761cfdb490dca.addTo(map_f0b0f1d7fda1a3ec138af4ebfbfdda75);
+        
+    
+            map_f0b0f1d7fda1a3ec138af4ebfbfdda75.fitBounds(
+                [[-8.1751, -34.9152], [-8.1132, -34.8941]],
+                {}
+            );
+        
+</script>
+</html>
