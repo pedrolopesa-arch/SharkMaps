@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a2540"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+    <linearGradient id="cardBull" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="cardTiger" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo -->
+  <rect x="0" y="0" width="850" height="480" rx="12" fill="#f8fafc"/>
+
+  <!-- Cabeçalho -->
+  <rect x="0" y="0" width="850" height="55" rx="12" fill="url(#headerGrad)"/>
+  <text x="425" y="35" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">BIOLOGIA COMPARADA: TUBARÃO-CABEÇA-CHATA vs. TUBARÃO-TIGRE</text>
+
+  <!-- Coluna 1: Tubarão-Cabeça-Chata -->
+  <g transform="translate(30, 75)">
+    <rect width="380" height="380" rx="10" fill="url(#cardBull)" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="380" height="45" rx="10" fill="#334155"/>
+    <text x="190" y="28" font-family="'Segoe UI', sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Tubarão-Cabeça-Chata</text>
+    <text x="190" y="60" font-family="'Segoe UI', sans-serif" font-size="13" font-style="italic" fill="#0284c7" text-anchor="middle">Carcharhinus leucas (Müller &amp; Henle, 1839)</text>
+
+    <!-- Silhueta e Ilustração do Cabeça-Chata -->
+    <g transform="translate(40, 80) scale(0.6)">
+      <!-- Corpo compacto e robusto -->
+      <path d="M 50,110 C 100,70 200,60 300,70 C 370,80 430,105 470,120 C 440,140 370,160 300,165 C 200,170 120,160 50,110 Z" fill="#64748b"/>
+      <!-- Focinho achatado e curto -->
+      <path d="M 50,110 C 30,105 15,115 10,125 C 20,135 35,130 50,110 Z" fill="#475569"/>
+      <!-- Dorsal larga e triangular -->
+      <path d="M 210,65 L 250,15 L 280,68 Z" fill="#475569"/>
+      <!-- Cauda caudal -->
+      <path d="M 470,120 L 510,70 L 490,125 L 515,165 L 460,130 Z" fill="#475569"/>
+      <!-- Peitoral larga -->
+      <path d="M 160,150 L 140,210 L 195,160 Z" fill="#475569"/>
+    </g>
+
+    <!-- Tópicos Diagnósticos -->
+    <g transform="translate(20, 205)">
+      <text x="0" y="15" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">🔍 Focinho:</text>
+      <text x="80" y="15" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Extremamente curto, largo e rombudo.</text>
+
+      <text x="0" y="40" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">⚖️ Porte:</text>
+      <text x="80" y="40" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">2,1 a 3,4 metros (corpo maciço e pesado).</text>
+
+      <text x="0" y="65" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">💧 Fisiologia:</text>
+      <text x="80" y="65" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Tolera água doce/salobra (osmorregulação).</text>
+
+      <text x="0" y="90" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">📍 Ocorrência:</text>
+      <text x="80" y="90" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Comum na foz dos rios Jaboatão e Capibaribe.</text>
+
+      <text x="0" y="115" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">🦷 Dentição:</text>
+      <text x="80" y="115" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Dentes triangulares superiores bem serrilhados.</text>
+
+      <rect x="0" y="130" width="340" height="28" rx="4" fill="#e2e8f0"/>
+      <text x="170" y="148" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Predador costeiro oportunista de fundo</text>
+    </g>
+  </g>
+
+  <!-- Coluna 2: Tubarão-Tigre -->
+  <g transform="translate(440, 75)">
+    <rect width="380" height="380" rx="10" fill="url(#cardTiger)" stroke="#93c5fd" stroke-width="2"/>
+    <rect width="380" height="45" rx="10" fill="#0077b6"/>
+    <text x="190" y="28" font-family="'Segoe UI', sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Tubarão-Tigre</text>
+    <text x="190" y="60" font-family="'Segoe UI', sans-serif" font-size="13" font-style="italic" fill="#0284c7" text-anchor="middle">Galeocerdo cuvier (Péron &amp; Lesueur, 1822)</text>
+
+    <!-- Silhueta e Ilustração do Tigre -->
+    <g transform="translate(40, 80) scale(0.6)">
+      <!-- Corpo esguio e grande -->
+      <path d="M 40,110 C 90,65 210,55 310,65 C 380,75 440,95 480,115 C 440,135 370,150 300,155 C 190,160 110,150 40,110 Z" fill="#0284c7"/>
+      <!-- Focinho largo -->
+      <path d="M 40,110 C 25,105 10,112 5,120 C 15,130 30,125 40,110 Z" fill="#0369a1"/>
+      <!-- Listras tigradas características -->
+      <line x1="160" y1="75" x2="165" y2="135" stroke="#082f49" stroke-width="4" stroke-linecap="round"/>
+      <line x1="190" y1="70" x2="195" y2="140" stroke="#082f49" stroke-width="4" stroke-linecap="round"/>
+      <line x1="220" y1="68" x2="225" y2="140" stroke="#082f49" stroke-width="4" stroke-linecap="round"/>
+      <line x1="250" y1="72" x2="255" y2="135" stroke="#082f49" stroke-width="3" stroke-linecap="round"/>
+      <line x1="280" y1="78" x2="285" y2="130" stroke="#082f49" stroke-width="3" stroke-linecap="round"/>
+      <!-- Nadadeira dorsal -->
+      <path d="M 230,65 L 260,20 L 290,70 Z" fill="#0369a1"/>
+      <!-- Cauda com lobo superior longo -->
+      <path d="M 480,115 L 535,55 L 505,120 L 525,155 L 465,125 Z" fill="#0369a1"/>
+      <!-- Peitoral curva -->
+      <path d="M 150,145 L 120,205 L 180,155 Z" fill="#0369a1"/>
+    </g>
+
+    <!-- Tópicos Diagnósticos -->
+    <g transform="translate(20, 205)">
+      <text x="0" y="15" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">🔍 Padrão:</text>
+      <text x="80" y="15" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Listras e manchas verticais no dorso e flancos.</text>
+
+      <text x="0" y="40" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">⚖️ Porte:</text>
+      <text x="80" y="40" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">3,0 a 5,0 metros (grande porte oceânico).</text>
+
+      <text x="0" y="65" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">🌊 Mobilidade:</text>
+      <text x="80" y="65" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Altamente migratório; aproxima-se da costa à noite.</text>
+
+      <text x="0" y="90" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">📍 Ocorrência:</text>
+      <text x="80" y="90" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Ampla distribuição costeira e oceânica em PE.</text>
+
+      <text x="0" y="115" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#1e293b">🦷 Dentição:</text>
+      <text x="80" y="115" font-family="'Segoe UI', sans-serif" font-size="12" fill="#334155">Dentes recurvados com corte oblíquo em 'abre-latas'.</text>
+
+      <rect x="0" y="130" width="340" height="28" rx="4" fill="#dbeafe"/>
+      <text x="170" y="148" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#0369a1" text-anchor="middle">Superpredador de topo com dieta generalista</text>
+    </g>
+  </g>
+</svg>

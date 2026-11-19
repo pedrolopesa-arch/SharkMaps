@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a2540"/>
+      <stop offset="50%" stop-color="#0d3b66"/>
+      <stop offset="100%" stop-color="#001a33"/>
+    </linearGradient>
+    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0077b6"/>
+      <stop offset="100%" stop-color="#00b4d8"/>
+    </linearGradient>
+    <linearGradient id="waveGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0096c7"/>
+      <stop offset="100%" stop-color="#48cae4"/>
+    </linearGradient>
+    <linearGradient id="pinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo Circular Moderno -->
+  <circle cx="250" cy="250" r="235" fill="url(#bgGrad)" stroke="#00b4d8" stroke-width="5" stroke-opacity="0.4"/>
+  <circle cx="250" cy="250" r="215" fill="none" stroke="#0077b6" stroke-width="2" stroke-dasharray="8 6" opacity="0.6"/>
+
+  <!-- Ondas Oceânicas Dinâmicas -->
+  <path d="M 45,310 C 110,270 170,350 250,300 C 330,250 390,330 455,290 L 455,420 C 400,460 330,480 250,480 C 170,480 100,460 45,420 Z" fill="url(#waveGrad1)" opacity="0.85"/>
+  <path d="M 50,350 C 120,310 190,390 270,340 C 340,300 400,370 450,330 L 450,430 C 390,470 320,485 250,485 C 180,485 110,470 50,430 Z" fill="url(#waveGrad2)" opacity="0.95"/>
+
+  <!-- Marcador Geográfico Central (Pin) -->
+  <path d="M 250,70 C 195,70 150,115 150,170 C 150,230 220,310 250,345 C 280,310 350,230 350,170 C 350,115 305,70 250,70 Z" fill="url(#pinGrad)" filter="url(#glow)"/>
+  <!-- Núcleo interno do Marcador com gradiente marinho -->
+  <circle cx="250" cy="170" r="65" fill="#0a2540" stroke="#00b4d8" stroke-width="3"/>
+
+  <!-- Silhueta Estilizada do Tubarão (em nado dinâmico cortando o pino e as ondas) -->
+  <g transform="translate(145, 105) scale(0.42)">
+    <!-- Corpo e nadadeiras do tubarão -->
+    <path d="M 380,120 C 340,110 280,95 210,105 C 170,110 130,125 90,150 C 60,170 30,205 10,235 C 5,242 12,250 20,248 C 65,235 110,230 150,235 C 190,240 230,255 270,265 C 330,280 390,270 440,240 C 470,220 490,195 500,165 C 502,158 495,152 488,154 C 455,165 420,160 380,120 Z" fill="#ffffff" opacity="0.95"/>
+    <!-- Nadadeira dorsal proeminente -->
+    <path d="M 230,105 C 245,60 270,20 300,5 C 304,3 308,8 306,12 C 298,35 295,70 305,100 Z" fill="#00b4d8"/>
+    <!-- Nadadeira peitoral -->
+    <path d="M 175,232 C 160,270 135,310 100,335 C 95,338 90,334 92,328 C 102,295 115,260 145,234 Z" fill="#00b4d8"/>
+    <!-- Cauda caudal heterocerca -->
+    <path d="M 450,235 C 480,245 520,275 545,310 C 549,315 556,312 554,306 C 545,270 540,230 558,185 C 561,178 554,172 548,176 C 520,195 490,215 450,235 Z" fill="#ffffff"/>
+    <!-- Olho estilizado -->
+    <circle cx="85" cy="180" r="5" fill="#0a2540"/>
+    <!-- Fendas branquiais -->
+    <line x1="135" y1="170" x2="130" y2="195" stroke="#0a2540" stroke-width="3" stroke-linecap="round"/>
+    <line x1="145" y1="168" x2="140" y2="197" stroke="#0a2540" stroke-width="3" stroke-linecap="round"/>
+    <line x1="155" y1="166" x2="150" y2="199" stroke="#0a2540" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Ponto Focal / Coordenada de Recife -->
+  <circle cx="250" cy="170" r="10" fill="#00b4d8" filter="url(#glow)"/>
+  <circle cx="250" cy="170" r="4" fill="#ffffff"/>
+
+  <!-- Tipografia de Identidade Integrada -->
+  <text x="250" y="415" font-family="'Segoe UI', Roboto, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="6">SHARKMAPS</text>
+  <text x="250" y="445" font-family="'Segoe UI', Roboto, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#00b4d8" text-anchor="middle" letter-spacing="2">PERNAMBUCO • CIÊNCIA &amp; SEGURANÇA</text>
+</svg>

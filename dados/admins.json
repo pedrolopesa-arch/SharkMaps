@@ -1,0 +1,22 @@
+{
+    "admin": {
+        "nome": "Super-Administrador do Sistema",
+        "instituicao": "UFRPE / Projeto SharkMaps",
+        "email": "admin@ufrpe.br",
+        "papel": "superadmin",
+        "salt": "6d68e1c7b88190a30dce9b60c573449b",
+        "hash": "39159c1d8b791572672a41e3587e2eb37fbe0db7724c6ac000357ee2ff37d429",
+        "ativo": true,
+        "criado_em": "2026-11-18T22:39:25.340520"
+    },
+    "admin_cemit": {
+        "nome": "Comitê Estadual de Monitoramento de Incidentes com Tubarões",
+        "instituicao": "CEMIT - Pernambuco",
+        "email": "contato.cemit@pe.gov.br",
+        "papel": "pesquisador",
+        "salt": "46907d5f8f2fb11962c3f8649c619634",
+        "hash": "835faff6beae857eed7309a60349f8d812be6ffc7b8ade003aec131294ef2656",
+        "ativo": true,
+        "criado_em": "2026-11-18T22:39:25.340520"
+    }
+}

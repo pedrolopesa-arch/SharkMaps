@@ -1,4 +1,4 @@
-"""Aba educacional com visualização de artigos em Markdown e resumo estatístico via pandas."""
+"""Aba educacional e científica do SharkMaps com renderização de artigos e estatísticas."""
 
 from pathlib import Path
 from PySide6.QtCore import QDir, Qt, QUrl
@@ -18,7 +18,7 @@ from mapa.repositorio import carregar_pontos
 
 
 class AbaInfo(QWidget):
-    """Aba educacional: exibe materiais informativos em Markdown e métricas dos registros."""
+    """Aba informativa: materiais didáticos, dados ecológicos e resumo estatístico."""
 
     CHAVE_RESUMO = "__resumo__"
 
@@ -31,12 +31,14 @@ class AbaInfo(QWidget):
         splitter = QSplitter(Qt.Horizontal)
         layout_principal.addWidget(splitter)
 
-        # 1. Painel Esquerdo: Lista de Tópicos e Artigos
+        # 1. Painel Esquerdo: Lista de Tópicos
         painel_esquerdo = QWidget()
         layout_esq = QVBoxLayout(painel_esquerdo)
-        layout_esq.setContentsMargins(8, 8, 8, 8)
+        layout_esq.setContentsMargins(12, 12, 12, 12)
+        layout_esq.setSpacing(8)
 
-        lbl_titulos = QLabel("<b>Materiais e Relatórios:</b>")
+        lbl_titulos = QLabel("<b>📚 Materiais Educativos:</b>")
+        lbl_titulos.setStyleSheet("color: #0a2540; font-size: 14px;")
         layout_esq.addWidget(lbl_titulos)
 
         self.lista_topicos = QListWidget()
@@ -45,23 +47,25 @@ class AbaInfo(QWidget):
 
         splitter.addWidget(painel_esquerdo)
 
-        # 2. Painel Direito: Navegador de Texto Rico (Markdown / HTML)
+        # 2. Painel Direito: Navegador de Texto
         self.browser = QTextBrowser()
         self.browser.setOpenExternalLinks(True)
 
-        # Configura caminho base para busca de imagens relativas
+        # Configuração rigorosa dos caminhos de busca para imagens e conteúdo
         caminho_conteudo = str(config.CONTEUDO_DIR.resolve())
+        caminho_imagens = str(config.IMAGENS_DIR.resolve())
+
+        QDir.setSearchPaths("imagens", [caminho_imagens])
+        QDir.addSearchPath("imagens", caminho_imagens)
+        QDir.setSearchPaths("conteudo", [caminho_conteudo])
         QDir.addSearchPath("conteudo", caminho_conteudo)
+
         self.browser.document().setBaseUrl(QUrl.fromLocalFile(caminho_conteudo + "/"))
 
         splitter.addWidget(self.browser)
+        splitter.setSizes([290, 810])
 
-        # Proporção inicial: 280px para lista, restante para leitura
-        splitter.setSizes([280, 820])
-
-        # Mapeamento interno: item_id -> caminho do arquivo .md
         self.artigos_md = {}
-
         self.carregar_conteudos()
 
     def carregar_conteudos(self):
@@ -70,37 +74,34 @@ class AbaInfo(QWidget):
         self.artigos_md.clear()
 
         # Item fixo: Resumo dos Registros
-        item_resumo = QListWidgetItem("📊 Resumo dos Registros")
+        item_resumo = QListWidgetItem("📊 Resumo Científico dos Registros")
         item_resumo.setData(Qt.UserRole, self.CHAVE_RESUMO)
         self.lista_topicos.addItem(item_resumo)
 
-        # Procura por arquivos Markdown na pasta conteudo/
+        # Varre arquivos .md
         if config.CONTEUDO_DIR.is_dir():
             for arquivo in sorted(config.CONTEUDO_DIR.glob("*.md")):
                 titulo = self._extrair_titulo_md(arquivo)
-                item = QListWidgetItem(f"📄 {titulo}")
+                item = QListWidgetItem(f"📖 {titulo}")
                 item.setData(Qt.UserRole, str(arquivo))
                 self.lista_topicos.addItem(item)
                 self.artigos_md[str(arquivo)] = arquivo
 
-        # Seleciona o primeiro tópico por padrão
         if self.lista_topicos.count() > 0:
             self.lista_topicos.setCurrentRow(0)
 
     def _extrair_titulo_md(self, caminho_md: Path) -> str:
-        """Extrai o primeiro título (# Título) do arquivo Markdown, ou retorna o nome do arquivo."""
         try:
             with open(caminho_md, "r", encoding="utf-8") as f:
                 for linha in f:
                     linha = linha.strip()
                     if linha.startswith("# "):
-                        return linha.replace("# ", "").strip()
+                        return linha.replace("# ", "").replace("🏖️", "").replace("🦈", "").replace("🌊", "").strip()
         except Exception:
             pass
         return caminho_md.stem.capitalize()
 
     def _ao_selecionar_topico(self, item_atual: QListWidgetItem, item_anterior=None):
-        """Carrega e exibe o conteúdo do tópico selecionado."""
         if not item_atual:
             return
 
@@ -113,82 +114,125 @@ class AbaInfo(QWidget):
                 with open(caminho_arquivo, "r", encoding="utf-8") as f:
                     conteudo = f.read()
                 self.browser.setMarkdown(conteudo)
+                self._formatar_elementos_artigo()
             except Exception as e:
                 self.browser.setHtml(f"<p style='color:red;'>Erro ao carregar artigo: {e}</p>")
 
+    def _formatar_elementos_artigo(self):
+        """Centraliza blocos de imagens e legendas científicas para máxima elegância visual."""
+        doc = self.browser.document()
+        bloco = doc.begin()
+        while bloco.isValid():
+            texto = bloco.text()
+            # Se o bloco contiver uma imagem (código de objeto \ufffc) ou uma legenda iniciada com Figura/*Figura
+            if "\ufffc" in texto or texto.strip().startswith("Figura") or texto.strip().startswith("*Figura"):
+                formato = bloco.blockFormat()
+                formato.setAlignment(Qt.AlignCenter)
+                cursor = self.browser.textCursor()
+                cursor.setPosition(bloco.position())
+                cursor.setBlockFormat(formato)
+            bloco = bloco.next()
+
     def atualizar_resumo(self):
-        """Atualiza a visualização do resumo caso esteja selecionado no momento."""
         item_selecionado = self.lista_topicos.currentItem()
         if item_selecionado and item_selecionado.data(Qt.UserRole) == self.CHAVE_RESUMO:
             self.exibir_resumo()
 
     def exibir_resumo(self):
-        """Gera e exibe estatísticas consolidadas dos pontos usando pandas."""
-        df = carregar_pontos(config.PONTOS_CSV)
+        """Gera e renderiza métricas analíticas e consolidação de espécies."""
+        df = carregar_pontos(config.PONTOS_CSV, apenas_oficiais=False)
 
         total_registros = len(df)
-        total_incidentes = len(df[df["tipo"] == "incidente"]) if not df.empty else 0
-        total_postos = len(df[df["tipo"] == "posto_salvavidas"]) if not df.empty else 0
+        total_oficiais = len(df[df["status"] == "oficial"]) if not df.empty else 0
+        total_incidentes = len(df[(df["tipo"] == "incidente") & (df["status"] == "oficial")]) if not df.empty else 0
+        total_salvavidas = len(df[df["tipo"] == "posto_salvavidas"]) if not df.empty else 0
+        total_pendentes = len(df[df["status"] == "pendente"]) if not df.empty else 0
 
-        # Tabela por espécies (apenas incidentes)
-        html_tabela_especies = "<p><i>Nenhum registro de incidente disponível.</i></p>"
+        html_especies = "<p><i>Nenhum registro de incidente documentado.</i></p>"
         if not df.empty and total_incidentes > 0:
-            df_incidentes = df[df["tipo"] == "incidente"].copy()
-            df_incidentes["especie"] = df_incidentes["especie"].replace("", "Não identificada")
-            contagem = df_incidentes["especie"].value_counts().reset_index()
-            contagem.columns = ["Espécie Registrada", "Total de Casos"]
-            html_tabela_especies = contagem.to_html(index=False, classes="tabela-resumo", border=0)
+            df_inc = df[(df["tipo"] == "incidente") & (df["status"] == "oficial")].copy()
+            df_inc["especie"] = df_inc["especie"].replace("", "Não identificada")
+            contagem = df_inc["especie"].value_counts().reset_index()
+            contagem.columns = ["Espécie Documentada", "Casos Oficiais"]
+            html_especies = contagem.to_html(index=False, classes="tabela-resumo", border=0)
 
         html_conteudo = f"""
         <html>
         <head>
             <style>
-                body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #2c3e50; padding: 15px; }}
-                h2 {{ color: #2980b9; border-bottom: 2px solid #3498db; padding-bottom: 6px; }}
-                h3 {{ color: #16a085; margin-top: 20px; }}
-                .cards {{ display: flex; gap: 15px; margin: 20px 0; }}
-                .card {{
-                    background: #f8f9fa; border-left: 4px solid #3498db;
-                    padding: 12px 18px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-                    margin-bottom: 10px;
+                body {{
+                    font-family: 'Segoe UI', Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #1e293b;
+                    padding: 20px;
+                    background-color: #ffffff;
                 }}
-                .card-alerta {{ border-left-color: #e74c3c; }}
-                .card-info {{ border-left-color: #27ae60; }}
+                h2 {{ color: #0a2540; border-bottom: 2px solid #0077b6; padding-bottom: 8px; }}
+                h3 {{ color: #0077b6; margin-top: 24px; }}
+                .cards-grid {{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                    margin: 16px 0;
+                }}
+                .card {{
+                    background: #f8fafc;
+                    border: 1px solid #e2e8f0;
+                    border-left: 5px solid #0077b6;
+                    padding: 12px 16px;
+                    border-radius: 6px;
+                }}
+                .card-vermelho {{ border-left-color: #e63946; }}
+                .card-amarelo {{ border-left-color: #f59e0b; }}
+                .card-verde {{ border-left-color: #10b981; }}
+                .card-valor {{ font-size: 22px; font-weight: bold; color: #0a2540; margin-top: 4px; }}
+                .card-legenda {{ font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; }}
                 .tabela-resumo {{
-                    width: 100%; border-collapse: collapse; margin-top: 10px;
+                    width: 100%; border-collapse: collapse; margin-top: 12px;
                 }}
                 .tabela-resumo th {{
-                    background-color: #f2f2f2; border: 1px solid #ddd; padding: 8px; text-align: left;
+                    background-color: #0a2540; color: #ffffff; padding: 10px; text-align: left; font-size: 13px;
                 }}
                 .tabela-resumo td {{
-                    border: 1px solid #ddd; padding: 8px;
+                    border-bottom: 1px solid #e2e8f0; padding: 10px; font-size: 13px;
                 }}
-                .aviso-oficial {{
-                    background-color: #fff3cd; border: 1px solid #ffeeba;
-                    color: #856404; padding: 12px; border-radius: 4px; margin-top: 25px;
+                .tabela-resumo tr:nth-child(even) {{
+                    background-color: #f8fafc;
+                }}
+                .aviso-rodape {{
+                    background-color: #f0fdf4; border: 1px solid #bbf7d0;
+                    color: #166534; padding: 14px; border-radius: 6px; margin-top: 28px; font-size: 12px;
                 }}
             </style>
         </head>
         <body>
-            <h2>📊 Resumo Geral dos Registros</h2>
-            <p>Estatísticas compiladas em tempo real a partir da base de dados local de Pernambuco.</p>
+            <h2>📊 Resumo Científico da Base SharkMaps</h2>
+            <p>Métricas consolidadas a partir dos registros georreferenciados documentados pelo CEMIT / MONITUBA no litoral de Pernambuco e Fernando de Noronha.</p>
 
-            <div class="card card-alerta">
-                <b>Total de Incidentes Registrados:</b> {total_incidentes}
-            </div>
-            <div class="card card-info">
-                <b>Postos de Salva-vidas Mapeados:</b> {total_postos}
-            </div>
-            <div class="card">
-                <b>Total de Pontos no Sistema:</b> {total_registros}
+            <div class="cards-grid">
+                <div class="card card-vermelho">
+                    <div class="card-legenda">Incidentes Oficiais Documentados</div>
+                    <div class="card-valor">{total_incidentes}</div>
+                </div>
+                <div class="card card-verde">
+                    <div class="card-legenda">Postos de Guarda-Vidas Mapeados (CBMPE)</div>
+                    <div class="card-valor">{total_salvavidas}</div>
+                </div>
+                <div class="card">
+                    <div class="card-legenda">Total de Registros Oficiais no Banco</div>
+                    <div class="card-valor">{total_oficiais}</div>
+                </div>
+                <div class="card card-amarelo">
+                    <div class="card-legenda">Relatos Cidadãos Pendentes de Curadoria</div>
+                    <div class="card-valor">{total_pendentes}</div>
+                </div>
             </div>
 
-            <h3>Distribuição por Espécie (Incidentes)</h3>
-            {html_tabela_especies}
+            <h3>Distribuição por Espécie (Incidentes Oficiais)</h3>
+            {html_especies}
 
-            <div class="aviso-oficial">
-                <b>Aviso Importante:</b> Este compilado tem finalidade estritamente acadêmica e educativa.
-                Os registros não substituem relatórios oficiais do CEMIT nem o acompanhamento de risco em tempo real.
+            <div class="aviso-rodape">
+                <b>Compromisso Científico e Ético:</b> A plataforma SharkMaps cumpre rigorosamente as diretrizes éticas e de proteção a dados sensíveis (LGPD), não armazenando identidades de vítimas ou dados pessoais. Todos os dados são georreferenciados com base em relatórios públicos de órgãos competentes (CEMIT, SDS-PE, CBMPE e ICMBio).
             </div>
         </body>
         </html>

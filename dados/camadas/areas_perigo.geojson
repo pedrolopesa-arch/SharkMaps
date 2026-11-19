@@ -1,0 +1,41 @@
+{
+  "type": "FeatureCollection",
+  "name": "areas_perigo_pernambuco",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Faixa Costeira Crítica: Olinda - Recife - Piedade - Paiva",
+        "classificacao": "Risco Máximo / Canal Submarino Profundo",
+        "extensao_km": 32.5,
+        "descricao": "Zona de máxima atenção no litoral pernambucano devido à presença do canal submarino profundo paralelo à costa, abertura nos recifes e proximidade com as bacias dos rios Capibaribe e Jaboatão.",
+        "recomendacao": "Banho de mar proibido ou sob severa restrição; permanecer apenas em maré baixa nas piscinas naturais protegidas por recifes de arenito."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-34.8600, -8.0200],
+            [-34.8450, -8.0250],
+            [-34.8550, -8.0700],
+            [-34.8750, -8.1150],
+            [-34.8850, -8.1450],
+            [-34.9000, -8.1800],
+            [-34.9200, -8.2300],
+            [-34.9350, -8.2800],
+            [-34.9400, -8.3100],
+            [-34.9650, -8.3100],
+            [-34.9500, -8.2700],
+            [-34.9350, -8.2200],
+            [-34.9200, -8.1750],
+            [-34.9050, -8.1350],
+            [-34.8900, -8.1000],
+            [-34.8750, -8.0550],
+            [-34.8680, -8.0200],
+            [-34.8600, -8.0200]
+          ]
+        ]
+      }
+    }
+  ]
+}

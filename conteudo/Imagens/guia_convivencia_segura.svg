@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo do Painel Didático -->
+  <rect x="0" y="0" width="800" height="420" rx="12" fill="url(#skyGrad)"/>
+  
+  <!-- Cabeçalho -->
+  <rect x="0" y="0" width="800" height="60" rx="12" fill="#0a2540"/>
+  <text x="400" y="38" font-family="'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">🛡️ 6 REGRAS DE OURO PARA CONVIVÊNCIA SEGURA NA PRAIA</text>
+
+  <!-- Grid de 6 Recomendações (3 colunas x 2 linhas) -->
+  
+  <!-- Card 1: Respeite a Sinalização -->
+  <g transform="translate(30, 80)">
+    <rect width="225" height="150" rx="8" fill="url(#cardGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="112" cy="45" r="28" fill="#fee2e2"/>
+    <text x="112" y="55" font-size="26" text-anchor="middle">🚩</text>
+    <text x="112" y="95" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#991b1b" text-anchor="middle">1. Sinalização Oficial</text>
+    <text x="112" y="115" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Nunca entre onde houver</text>
+    <text x="112" y="130" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">placas de alerta de tubarão.</text>
+  </g>
+
+  <!-- Card 2: Postos de Guarda-Vidas -->
+  <g transform="translate(285, 80)">
+    <rect width="225" height="150" rx="8" fill="url(#cardGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="112" cy="45" r="28" fill="#e0f2fe"/>
+    <text x="112" y="55" font-size="26" text-anchor="middle">🛟</text>
+    <text x="112" y="95" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#0369a1" text-anchor="middle">2. Perto dos Guarda-Vidas</text>
+    <text x="112" y="115" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Fique no raio visual dos</text>
+    <text x="112" y="130" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">postos ativos do CBMPE (193).</text>
+  </g>
+
+  <!-- Card 3: Limite da Cintura -->
+  <g transform="translate(540, 80)">
+    <rect width="225" height="150" rx="8" fill="url(#cardGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="112" cy="45" r="28" fill="#fef3c7"/>
+    <text x="112" y="55" font-size="26" text-anchor="middle">🧍</text>
+    <text x="112" y="95" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#b45309" text-anchor="middle">3. Limite de Profundidade</text>
+    <text x="112" y="115" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Água no máximo até a cintura;</text>
+    <text x="112" y="130" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">evite nadar em mar aberto.</text>
+  </g>
+
+  <!-- Card 4: Fases da Maré -->
+  <g transform="translate(30, 245)">
+    <rect width="225" height="150" rx="8" fill="url(#cardGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="112" cy="45" r="28" fill="#f1f5f9"/>
+    <text x="112" y="55" font-size="26" text-anchor="middle">🌊</text>
+    <text x="112" y="95" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle">4. Atenção à Maré Cheia</text>
+    <text x="112" y="115" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Na maré alta os recifes cobrem</text>
+    <text x="112" y="130" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">e predadores acessam a costa.</text>
+  </g>
+
+  <!-- Card 5: Horários de Risco -->
+  <g transform="translate(285, 245)">
+    <rect width="225" height="150" rx="8" fill="url(#cardGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="112" cy="45" r="28" fill="#ede9fe"/>
+    <text x="112" y="55" font-size="26" text-anchor="middle">🌅</text>
+    <text x="112" y="95" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#6d28d9" text-anchor="middle">5. Horários Críticos</text>
+    <text x="112" y="115" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Evite banho ao amanhecer,</text>
+    <text x="112" y="130" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">entardecer e durante a noite.</text>
+  </g>
+
+  <!-- Card 6: Água Turva e Objetos -->
+  <g transform="translate(540, 245)">
+    <rect width="225" height="150" rx="8" fill="url(#cardGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="112" cy="45" r="28" fill="#ffedd5"/>
+    <text x="112" y="55" font-size="26" text-anchor="middle">💍</text>
+    <text x="112" y="95" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#c2410c" text-anchor="middle">6. Turbidez e Brilho</text>
+    <text x="112" y="115" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Não entre em água turva após</text>
+    <text x="112" y="130" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569" text-anchor="middle">chuvas nem com joias reluzentes.</text>
+  </g>
+</svg>

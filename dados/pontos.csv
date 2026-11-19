@@ -1,5 +1,18 @@
-tipo,nome,lat,lon,data,especie,descricao,fonte
-incidente,Praia de Boa Viagem - Posto 7,-8.1256,-34.8998,2023-03-05,Tubarão-tigre,Incidente envolvendo banhista em área rasa,CEMIT
-incidente,Praia de Piedade - Igrejinha,-8.1751,-34.9152,2023-03-06,Tubarão-cabeça-chata,Incidente registrado próximo à Igrejinha de Piedade,CEMIT
-posto_salvavidas,Posto de Salvamento 01,-8.1132,-34.8941,2024-01-01,N/A,Posto ativo do Corpo de Bombeiros Militar de Pernambuco,CBMPE
-posto_salvavidas,Posto de Salvamento 08,-8.1345,-34.9031,2024-01-01,N/A,Posto ativo com guarda-vidas em Boa Viagem,CBMPE
+id,tipo,nome,lat,lon,data,especie,descricao,fonte,status
+PE-001,incidente,Praia de Del Chifre - Olinda,-8.0264,-34.8631,2006-06-18,Tubarão-cabeça-chata,Incidente envolvendo surfista na arrebentação em dia de maré alta e água turva,CEMIT / MONITUBA,oficial
+PE-002,incidente,Praia de Boa Viagem - Segundo Jardim,-8.1098,-34.8872,2013-07-22,Tubarão-tigre,Incidente com banhista nas proximidades da abertura dos recifes em maré cheia,CEMIT / MONITUBA,oficial
+PE-003,incidente,Praia de Boa Viagem - Edifício Acaiaca,-8.1215,-34.8974,2002-09-20,Tubarão-cabeça-chata,Ataque registrado a cerca de 20 metros da faixa de areia sobre o canal submarino,CEMIT / MONITUBA,oficial
+PE-004,incidente,Praia de Boa Viagem - Posto 7,-8.1256,-34.8998,2023-03-05,Tubarão-tigre,Incidente envolvendo banhista em área de canal profundo em maré enchente,CEMIT / MONITUBA,oficial
+PE-005,incidente,Praia de Boa Viagem - Posto 9,-8.1382,-34.9045,2008-06-01,Tubarão-cabeça-chata,Banhista mordido na coxa durante o entardecer; tempo chuvoso e baixa visibilidade,CEMIT / MONITUBA,oficial
+PE-006,incidente,Praia de Piedade - Igrejinha (Trecho 1),-8.1751,-34.9152,2021-07-10,Tubarão-cabeça-chata,Incidente grave no trecho sem proteção de recifes em frente à Igrejinha de Piedade,CEMIT / MONITUBA,oficial
+PE-007,incidente,Praia de Piedade - Igrejinha (Trecho 2),-8.1768,-34.9161,2023-03-06,Tubarão-cabeça-chata,Incidente com jovem banhista em área expressamente sinalizada com placas de perigo,CEMIT / MONITUBA,oficial
+PE-008,incidente,Praia do Paiva - Barra de Jangada,-8.2415,-34.9467,2018-04-15,Tubarão-tigre,Ataque registrado na proximidade da foz do Rio Jaboatão durante maré vazante,CEMIT / MONITUBA,oficial
+PE-009,incidente,Praia do Paiva - Cabo de Santo Agostinho,-8.2750,-34.9520,2004-05-23,Tubarão-cabeça-chata,Incidente com praticante de bodyboard em mar aberto fora da barreira recifal,CEMIT / MONITUBA,oficial
+PE-010,incidente,Praia de Enseada dos Corais,-8.3210,-34.9680,2012-10-14,Tubarão-tigre,Registro de incidente costeiro nas imediações de formações rochosas abertas,CEMIT / MONITUBA,oficial
+PE-011,incidente,Ilha de Itamaracá - Forte Orange,-7.8125,-34.8389,1998-03-01,Tubarão-cabeça-chata,Incidente histórico no canal de Santa Cruz em área de estuário e manguezal,CEMIT / MONITUBA,oficial
+PE-012,incidente,Fernando de Noronha - Baía do Sueste,-3.8642,-32.4285,2015-12-21,Tubarão-limão,Interação não letal com banhista em mergulho livre na área do Parque Nacional Marinho,ICMBio / CEMIT,oficial
+PE-013,incidente,Fernando de Noronha - Praia da Conceição,-3.8436,-32.4221,2020-01-18,Tubarão-tigre,Avistamento e contato acidental com surfista ao entardecer na rebentação,ICMBio / CEMIT,oficial
+PE-014,posto_salvavidas,Posto Guarda-Vidas 01 (Pina),-8.0895,-34.8798,2024-01-01,N/A,Posto ativo de salvamento e patrulha costeira diária do CBMPE,CBMPE (193),oficial
+PE-015,posto_salvavidas,Posto Guarda-Vidas 04 (Boa Viagem - Segundo Jardim),-8.1102,-34.8875,2024-01-01,N/A,Posto com guarda-vidas e quadriciclo de resgate rápido na areia,CBMPE (193),oficial
+PE-016,posto_salvavidas,Posto Guarda-Vidas 08 (Boa Viagem - Acaiaca),-8.1218,-34.8978,2024-01-01,N/A,Posto fixo de observação em frente ao Edifício Acaiaca,CBMPE (193),oficial
+PE-017,posto_salvavidas,Posto Guarda-Vidas 12 (Piedade - Igrejinha),-8.1748,-34.9149,2024-01-01,N/A,Posto intensivo com bandeiras de advertência de perigo permanente,CBMPE (193),oficial
